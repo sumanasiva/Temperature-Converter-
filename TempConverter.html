@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Temperature Conversion</title>
+    <style>
+         *,
+        *:before,
+        *:after {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+            font-family: "Roboto Mono", monospace;
+            font-size: 18px;
+        }
+
+        body {
+            background-color:chocolate;
+        }
+
+        .wrapper {
+            width: 450px;
+            background-color: #ffffff;
+            padding: 70px 40px;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            left: 50%;
+            top: 50%;
+            box-shadow: 0 20px 25px rgba(0, 0, 0, 0.25);
+            border-radius: 8px;
+            display: flex;
+            justify-content: space-between;
+        }
+
+        .container {
+            width: 45%;
+        }
+
+        input {
+            width: 100%;
+            height: 50px;
+            border-radius: 5px;
+            border: 2px solid #d2d2d2;
+            outline: none;
+            margin-top: 8px;
+            padding: 0 10px;
+        }
+
+        input:focus {
+            border-color: #3164ff;
+        }
+        button {
+            background-color: #3164ff;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        button:hover {
+            background-color: #2145d6;
+        }
+    </style>
+</head>
+<body>
+    <div class="wrapper">
+        <div class="container">
+            <label for="celsius">Celsius</label>
+            <input type="number" id="celsius">
+            <button onclick="convertToFar()">Convert to Fahrenheit</button>
+            <span id="resultFar"></span>
+        </div>
+        <div class="container">
+            <label for="fahrenheit">Fahrenheit</label>
+            <input type="number" id="fahrenheit">
+            <button onclick="convertToCel()">Convert to Celsius</button>
+            <span id="resultCel"></span>
+        </div>
+    </div>
+    <script>
+           let celsius = document.getElementById("celsius");
+        let fahrenheit = document.getElementById("fahrenheit");
+
+
+        function convertToFar() {
+            let celsiusValue = parseFloat(celsius.value);
+            let fahrenheitValue = (celsiusValue * 9 / 5) + 32;
+            document.getElementById("resultFar").textContent = fahrenheitValue.toFixed(2) + " °F";
+        }
+
+        function convertToCel() {
+            let fahrenheitValue = parseFloat(fahrenheit.value);
+            let celsiusValue = (fahrenheitValue - 32) * 5 / 9;
+            document.getElementById("resultCel").textContent = celsiusValue.toFixed(2) + " °C";
+        }
+    </script>
+</body>
+</html>
